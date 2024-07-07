@@ -1,0 +1,11 @@
+express --no-view <app-name> // generate an express template
+npm i mongoose --save // install the ORM mongoose to connect to the database
+mongodb+srv://<username>:<password>@cluster0.8nuruza.mongodb.net/<database-name>?retryWrites=true&w=majority&appName=Cluster0
+npm i nodemon -D // nodemon to save every modification automatically and the server is running and -D to work Debugging (nodemon is not used in production)
+npm i dotenv // installing environment variables
+async func // Every time we send a request, we wait for it to finish to avoid problems.
+await // to wait for the function because it is async
+// to change database name change it in mongo_uri (in .env)
+npm i validator // a module for the validation
+npm i concurrently // to run multiple commands concurrently
+npm i react-router-dom // for every thing related to the routage
