@@ -11,7 +11,7 @@ const AddUser = async (req, res)=>{
             .then(async (exist) => {
                 if(exist){
                     errors.Email = "User Exist"
-                    res.status(404).json(errors);
+                    res.status(400).json(errors);
                 } else {
                     await Users.create(req.body);
                     res.status(201).json({message: 'User Added Successfully'});
@@ -26,7 +26,7 @@ const AddUser = async (req, res)=>{
 const FindAllUsers = async (req, res)=>{
     try {
         const data = await Users.find();
-        res.status(201).json(data);
+        res.status(200).json(data);
     } catch (error) {
         console.log(error.message);
     }
@@ -35,7 +35,7 @@ const FindAllUsers = async (req, res)=>{
 const FindSingleUser = async (req, res)=>{
     try {
         const data = await Users.findOne({_id:req.params.id});
-        res.status(201).json(data);
+        res.status(200).json(data);
     } catch (error) {
         console.log(error.message);
     }
@@ -52,7 +52,7 @@ const UpdateUser = async (req, res)=>{
                 req.body,
                 {new: true}
             );
-            res.status(201).json(data);
+            res.status(200).json(data);
         }
     } catch (error) {
         console.log(error.message);
@@ -62,7 +62,7 @@ const UpdateUser = async (req, res)=>{
 const DeleteUser = async (req, res)=>{
     try {
         await Users.findOneAndDelete({_id:req.params.id});
-        res.status(201).json({message: "User Deleted Successfully"});
+        res.status(200).json({message: "User Deleted Successfully"});
     } catch (error) {
         console.log(error.message);
     }

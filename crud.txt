@@ -9,3 +9,4 @@ await // to wait for the function because it is async
 npm i validator // a module for the validation
 npm i concurrently // to run multiple commands concurrently
 npm i react-router-dom // for every thing related to the routage
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event vite-jest --legacy-peer-deps //to install tests dependencies 
