@@ -1,26 +1,19 @@
-# Use the official Node.js image as the base image
 FROM node:16
 
-# Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
-# Copy the rest of the application code
 COPY . .
 
 # Build the React app
-RUN npm run build
+# RUN npm run build
+RUN chown -R node:node /app
 
-# Install a simple HTTP server to serve the static files
-RUN npm install -g serve
+ENV PORT 5173
 
-# Expose the port the app runs on
-EXPOSE 3000
+EXPOSE ${PORT}
 
-# Start the application
-CMD ["npm", "run", "client"]
+USER node
