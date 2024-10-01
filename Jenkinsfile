@@ -4,10 +4,12 @@ pipeline {
             image 'node:18' // Node.js Docker image
         }
     }
+
     environment {
-        MONGO_URL = process.env.MONGO_URI// Example MongoDB URL
+        MONGO_URL = "mongodb+srv://crud:crud@cluster0.8nuruza.mongodb.net/crud-users?retryWrites=true&w=majority&appName=Cluster0"// Example MongoDB URL
     }
     stages {
+        
         stage('Checkout') {
             steps {
                 // Clone your code from the Git repository
