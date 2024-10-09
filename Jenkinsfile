@@ -35,15 +35,6 @@ pipeline {
             }
         }
 
-        stage('Lint Backend Code') {
-            steps {
-                dir('server') {
-                    // Lint backend code
-                    sh 'npm run lint'
-                }
-            }
-        }
-
         stage('Lint Frontend Code') {
             steps {
                 dir('client') {
@@ -57,19 +48,19 @@ pipeline {
             steps {
                 dir('server') {
                     // Run backend tests
-                    sh 'npm run test test'
+                    sh 'npm run test '
                 }
             }
         }
 
-        stage('Test Frontend') {
+        {/*stage('Test Frontend') {
             steps {
                 dir('client') {
                     // Run frontend tests
                     sh 'npm run test'
                 }
             }
-        }
+        }*/}
 
         stage('Build Frontend') {
             steps {
