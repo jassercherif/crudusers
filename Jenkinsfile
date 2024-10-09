@@ -1,13 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18' // Node.js Docker image
-        }
-    }
-
-    environment {
-        MONGO_URL = "mongodb+srv://crud:crud@cluster0.8nuruza.mongodb.net/crud-users?retryWrites=true&w=majority&appName=Cluster0"// Example MongoDB URL
-    }
+    agent any
+    
     stages {
         
         stage('Checkout') {
