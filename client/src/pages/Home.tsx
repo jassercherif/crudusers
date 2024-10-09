@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from '../components/Modal';
 import { Link } from 'react-router-dom';
-import { SimpleRegistrationForm } from './RegisterForm';
 
 const Home = () => {
   const [users, setUsers] = useState([]);
