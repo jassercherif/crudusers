@@ -41,13 +41,7 @@ pipeline {
         }
 
 
-        stage('Build Frontend') {
-            steps {
-                dir('client') {
-                    sh 'npm run build'
-                }
-            }
-        }
+        
     }
     post {
         always {
