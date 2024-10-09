@@ -1,14 +1,18 @@
 pipeline {
     agent any
-    
+
+    tools {
+        nodejs 'NODE' // Use the NodeJS installation you configured
+    }
+
     stages {
         
-        stage('Checkout') {
+        {/*stage('Checkout') {
             steps {
                 // Clone your code from the Git repository
                 git url: 'https://github.com/jassercherif/crudusers', branch: 'master'
             }
-        }
+        }*/}
 
         stage('Install Backend Dependencies') {
             steps {
