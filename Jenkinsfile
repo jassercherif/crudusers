@@ -4,14 +4,14 @@ pipeline {
     tools {
         nodejs 'NODE' 
     }
-
-    stages {
+ 
+    stages { 
         
-
+  
         stage('Install Backend Dependencies') {
             steps {
                 dir('server') {
-                    sh 'npm install'
+                    sh 'npm install'  
                 }
             }
         }
@@ -19,19 +19,19 @@ pipeline {
         stage('Install Frontend Dependencies') {
             steps {
                 dir('client') {
-                    sh 'npm install --legacy-peer-deps'
+                    sh 'npm install --legacy-peer-deps'  
                 }
-            }
-        }
-
+            } 
+        } 
+ 
         stage('Lint Frontend Code') {
             steps {
                 dir('client') {
                     sh 'npm run lint'
                 }
-            }
-        }
-
+            } 
+        } 
+ 
         stage('Test Backend') {
             steps {
                 dir('server') {
@@ -40,7 +40,13 @@ pipeline {
             }
         }
 
-
+stage('Build Frontend') {
+            steps {
+                dir('client') {
+                    sh 'npm run build'
+                }
+            }
+        }
         
     }
     post {
