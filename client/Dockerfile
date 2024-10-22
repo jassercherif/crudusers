@@ -17,3 +17,5 @@ ENV PORT 5173
 EXPOSE ${PORT}
 
 USER node
+
+CMD ["npm", "run","client"]

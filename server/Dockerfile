@@ -12,3 +12,4 @@ ENV PORT 3700
 
 EXPOSE ${PORT}
 
+CMD ["npm", "run","server"]
