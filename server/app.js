@@ -15,9 +15,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// CORS configuration
 app.use(cors());
 
-mongoose.connect(process.env.MONGO_URI).then(()=>console.log('DB Connected')).catch(err=>console.log(err.message));
-app.use('/api',routerUsers);
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('DB Connected'))
+    .catch(err => console.log(err.message));
+
+// Define routes
+app.use('/api', routerUsers);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 module.exports = app;

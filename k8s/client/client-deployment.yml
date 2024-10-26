@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-react-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-react-app
+  template:
+    metadata:
+      labels:
+        app: my-react-app
+    spec:
+      containers:
+        - name: my-react-app
+          image: jassercherif/client:v1.3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5173
+          resources:
+            requests:
+              memory: "256Mi" # Request 256 megabytes of memory
+            limits:
+              memory: "512Mi" # Limit to 512 megabytes of memory

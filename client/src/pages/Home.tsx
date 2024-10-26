@@ -5,33 +5,35 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  
+
+  // Replace this with your actual backend URL
+  const API_URL = 'http://localhost:3700/api/users';
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('http://localhost:3700/api/users');
-        setUsers(res.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
+      const fetchData = async () => {
+          try {
+              const res = await axios.get(API_URL);
+              setUsers(res.data);
+          } catch (error) {
+              console.error('Error fetching user data:', error);
+          }
+      };
 
-    fetchData();
+      fetchData();
   }, []);
+
   const deleteData = async (userId) => {
-    try {
-      await axios.delete(`http://localhost:3700/api/users/${userId}`);
-      setUsers(users.filter(user => user._id !== userId));
-    } catch (error) {
-      console.error('Error deleting user:', error);
-    }
+      try {
+          await axios.delete(`${API_URL}/${userId}`);
+          setUsers(users.filter(user => user._id !== userId));
+      } catch (error) {
+          console.error('Error deleting user:', error);
+      }
   };
 
   const updateUser = (updatedUser) => {
-    setUsers(users.map(user => (user._id === updatedUser._id ? updatedUser : user)));
+      setUsers(users.map(user => (user._id === updatedUser._id ? updatedUser : user)));
   };
-
   return (
     <div className="font-sans overflow-x-auto">
       <table className="min-w-full bg-white">

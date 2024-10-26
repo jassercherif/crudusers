@@ -1,27 +1,33 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 
 export default function Modal({ user, onUpdate }) {
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState(user);
+    const [formData, setFormData] = useState(user);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+    useEffect(() => {
+        setFormData(user); // Update formData when the user prop changes
+    }, [user]);
 
-  const handleSubmit = async () => {
-    try {
-      await axios.put(`http://localhost:3700/api/users/${user._id}`, formData);
-      onUpdate(formData)
-      setShowModal(false);
-    } catch (error) {
-      console.error('Error updating user:', error);
-    }
-  };
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        try {
+            // Replace localhost with your backend URL
+            await axios.put(`http://localhost:3700/api/users/${user._id}`, formData);
+            onUpdate(formData); // Call the update function passed as a prop
+            setShowModal(false); // Close the modal
+        } catch (error) {
+            console.error('Error updating user:', error);
+        }
+    };
 
   return (
     <>

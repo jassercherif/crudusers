@@ -49,5 +49,5 @@
     "vite": "^5.2.0",
     "vite-jest": "^0.1.4"
   },
-  "proxy": "http://server:3700"
+  "proxy": "http://localhost:3700"
 }
