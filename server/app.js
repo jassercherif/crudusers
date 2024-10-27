@@ -17,8 +17,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // CORS configuration
-app.use(cors());
+//app.use(cors());
 
+app.use(cors());
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('DB Connected'))

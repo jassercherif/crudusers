@@ -20,6 +20,7 @@ export default function Modal({ user, onUpdate }) {
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
         try {
+            
             // Replace localhost with your backend URL
             await axios.put(`http://localhost:3700/api/users/${user._id}`, formData);
             onUpdate(formData); // Call the update function passed as a prop
