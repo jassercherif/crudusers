@@ -49,7 +49,7 @@ const Home = () => {
           </tr>
         </thead>
         <tbody className="whitespace-nowrap">
-          {users.map((user) => (
+          {Array.isArray(users) && users.map((user) => (
             <tr key={user._id} className="hover:bg-gray-50">
               <td className="p-4 text-[15px] text-gray-800">{user.Firstname}</td>
               <td className="p-4 text-[15px] text-gray-800">{user.Lastname}</td>
