@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-node-backend
-          image: jassercherif/server:v1.3
+          image: jassercherif/server:v1.7
           ports:
             - containerPort: 3700
           resources:
