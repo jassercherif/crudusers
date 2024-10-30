@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.ATLAS_URI)
     .then(() => console.log('DB Connected'))
     .catch(err => console.log(err.message));
 
