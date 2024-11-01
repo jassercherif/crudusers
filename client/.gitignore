@@ -22,4 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-src/__tests__
+
+src/__tests__/Home.test.tsx
