@@ -1,7 +1,20 @@
 import  { useState,useEffect } from "react";
 import axios from "axios";
 
-export default function Modal({ user, onUpdate }) {
+interface User {
+  _id: string;
+  Firstname: string;
+  Lastname: string;
+  Email: string;
+  Age: string; // Adjust type as necessary
+}
+
+interface ModalProps {
+  user: User;
+  onUpdate: (updatedUser: User) => void;
+}
+
+export default function Modal({ user, onUpdate }: Readonly<ModalProps>) {
   const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState(user);
 
