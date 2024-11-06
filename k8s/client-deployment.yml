@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-react-app
-          image: jassercherif/client:v1.7
+          image: jassercherif/client:v1.9
           imagePullPolicy: Always
           ports:
             - containerPort: 5173
