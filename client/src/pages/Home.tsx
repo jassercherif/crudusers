@@ -36,6 +36,7 @@ const Home = () => {
   };
   return (
     <div className="font-sans overflow-x-auto">
+    <h1>Hello World</h1>
       <table className="min-w-full bg-white">
         <thead className="bg-gray-100 whitespace-nowrap">
           <tr>

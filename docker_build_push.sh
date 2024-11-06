@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define image versions
-SERVER_IMAGE="jassercherif/server:v1.7"
-CLIENT_IMAGE="jassercherif/client:v1.7"
+SERVER_IMAGE="jassercherif/server:v1.9"
+CLIENT_IMAGE="jassercherif/client:v1.9"
 
 echo "Starting build and push process..."
 
